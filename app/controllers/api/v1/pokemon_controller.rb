@@ -6,7 +6,7 @@ class Api::V1::PokemonController < ApplicationController
       pagination = 1
     end
     # Paginated with 100 records each
-    @pokemens = Pokemon.where(id: pagination..(pagination + 100))
+    @pokemens = Pokemon.where(id: pagination..(pagination + 100)).map{|poke| {id: poke.id, name: poke.name, types: poke.type_details}}
 
     unless @pokemens.count == 0 
       render json: @pokemens
