@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_11_182433) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_11_192951) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_182433) do
     t.integer "height"
     t.integer "order"
     t.integer "weight"
-    t.integer "types", default: [], array: true
+    t.string "types", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

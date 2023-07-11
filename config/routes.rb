@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get "/setup", to: "setup#setup"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Only do the actions we are going to service
+  scope :except => [:patch, :destroy, :put, :post] do
+    namespace :api do 
+      namespace :v1 do 
+        resources :pokemon, :only => [:show, :index]
+      end
+    end
+  end
+
 end
