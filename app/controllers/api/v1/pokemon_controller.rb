@@ -1,4 +1,21 @@
 class Api::V1::PokemonController < ApplicationController
+
+  swagger_controller :pokemon, "Pokemon access"
+
+  # swagger_api :index do
+  #   summary "Fetches all Pokemon"
+  #   notes "Shows basic Pokemon info and types"
+  #   param :query, :pagination, :integer, :optional, "Pagination number"
+  #   response :not_found, "The database lacks any Pokemon"
+  # end
+
+  # swagger_api :show do
+  #   summary "Fetches a single Pokemon"
+  #   param :path, :id_or_name, :string, :optional, "Id or name"
+  #   response :ok, "Success", :Pokemon
+  #   response :not_found, "The database lacks the Pokemon"
+  # end
+
   def index
     if params[:pagination]
       pagination = params[:pagination].to_i

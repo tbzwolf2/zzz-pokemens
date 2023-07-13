@@ -54,3 +54,5 @@ end
 
 
 gem "httparty", "~> 0.21.0"
+
+gem "swagger-docs", "~> 0.2.9"
