@@ -7,7 +7,6 @@ class CreatePokemons < ActiveRecord::Migration[7.0]
       t.integer :height
       t.integer :order
       t.integer :weight
-      t.integer :types, array: true, default: [] 
 
       t.timestamps
     end

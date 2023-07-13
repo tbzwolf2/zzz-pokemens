@@ -1,5 +1,6 @@
 class Pokemon < ApplicationRecord
-  has_many :type
+  has_many :pokemons_types
+  has_many :type, :through => :pokemons_type
 
   def self.find_by_name_or_id(param)
     # Find_by here to prevent an error being thrown by find
@@ -10,12 +11,4 @@ class Pokemon < ApplicationRecord
     pokemon
   end
 
-  # This is causing an n+1 but im unable to find a structure I can make that will preloading of all types on each poke
-  def type_details
-    type_h = {}
-    types.each do |type|
-      type_h[type] = Type.select("name, damage_relations").find_by(name: type)
-    end
-    type_h
-  end
 end
